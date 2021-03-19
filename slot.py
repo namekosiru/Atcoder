@@ -1,3 +1,3 @@
 chars = input()
 
-for i in chars:
+for i in chars:gg
