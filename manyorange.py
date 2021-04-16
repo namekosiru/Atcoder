@@ -1,30 +1,24 @@
-A, B, W = map(int, input().split())
-max_num = 0
-min_num = 0
+a, b, w = map(int,input().split())
 
-W = W * 1000
-w_min = W // B
-min_num = min_num + w_min
-min_s =W - min_num * B
-if A <= min_s <= B or min_s <= 0:
-    if min_s <= 0:
-        pass
-    else:
-        min_num += 1
-else:
-    min_num = "UNSATISFIABLE"
-w_max = W // A
-max_num = max_num + w_max
-max_s = W - max_num * A
-if A <= max_s <= B or max_s <= 0:
-    if W - max_num * A <= 0:
-        pass
-    else:
-        min_num += 1
-else:
-    max_num = "UNSATISFIABLE"
+weight = w * 1000 # 単位合わせ
 
-if  type(max_num) is str or type(min_num) is str:
-    print(max_num)
+flag = True # 組み合わせが起こり得るか判別フラグ
+
+# 最大値を求める
+tmp = weight // a # 余り切り下げ
+if tmp * a <= weight and tmp * b >= weight:
+    max_num = weight // a
 else:
+    flag = False
+
+# 最小値を求める
+tmp = -(-weight // b) # 余り切り上げ
+if tmp * a <= weight and tmp * b >= weight:
+    min_num = -(-weight // b)
+else:
+    flag = False
+
+if flag:
     print(min_num, max_num)
+else:
+    print("UNSATISFIABLE")
