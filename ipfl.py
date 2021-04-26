@@ -11,9 +11,6 @@ for i in range(q):
 
     if t == 2:
         flip += 1
-        # tmp = s[li[1]-1]
-        # s[li[1]-1] = s[li[2]-1]
-        # s[li[2]-1] = tmp
     elif t == 1:
         if flip % 2 == 0:
             a, b = b, a
