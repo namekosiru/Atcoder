@@ -12,3 +12,4 @@ for i in s:
 
 total = 0
 total += count_o ** 4
+
