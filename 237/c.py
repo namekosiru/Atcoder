@@ -1,12 +1,20 @@
 s = input()
 
-for i in range(len(s)//2):
-    if s[i] == s[len(s)-1-i]:
-        continue
-    if s[i] != s[len(s)-1-i] and s[len(s)-1-i] == "a":
-        s = "a" + s
+left, right = 0, len(s)-1
+
+while right >= left:
+    if s[left] == 'a' and s[right] == 'a':
+        left += 1
+        right -= 1
+    elif s[right] == 'a':
+        right -= 1
     else:
-        print("No")
-        exit()
+        if s[left] != s[right]:
+            print("No")
+            exit()
+        else:
+            left += 1
+            right -= 1
+    
     
 print("Yes")
